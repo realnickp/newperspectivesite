@@ -121,7 +121,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col">
         <Navigation />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 overflow-x-clip">{children}</main>
         <Footer />
         <FloatingCTA />
       </body>
