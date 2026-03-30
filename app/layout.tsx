@@ -80,7 +80,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${dmSerif.variable} ${sourceSans.variable} overflow-x-hidden`}>
+    <html lang="en" className={`${dmSerif.variable} ${sourceSans.variable}`}>
       <head>
         <script
           type="application/ld+json"

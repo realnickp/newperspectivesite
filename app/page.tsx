@@ -124,7 +124,7 @@ export default function HomePage() {
       </div>
 
       {/* ===== SERVICES — Alternating editorial layout ===== */}
-      <section className="py-16 sm:py-24 md:py-32 bg-[#F2F0EB]">
+      <section className="py-16 sm:py-24 md:py-32 bg-[#F2F0EB] overflow-x-clip">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="mb-20">
             <p className="eyebrow mb-4">What Daniel Offers</p>
@@ -257,7 +257,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== BOOK TEASER ===== */}
-      <section className="py-16 sm:py-24 md:py-32">
+      <section className="py-16 sm:py-24 md:py-32 overflow-x-clip">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
             <AnimatedSection slideFrom="left" className="flex justify-center">
@@ -331,7 +331,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== ABOUT — Split with dramatic portrait ===== */}
-      <section className="py-16 sm:py-24 md:py-32 lg:py-52">
+      <section className="py-16 sm:py-24 md:py-32 lg:py-52 overflow-x-clip">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
             {/* Image side — bleeds to edge */}

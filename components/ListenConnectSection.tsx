@@ -30,7 +30,7 @@ export default function ListenConnectSection() {
   return (
     <section
       id="listen"
-      className="relative scroll-mt-24 py-24 sm:py-32 bg-[#FAFAF7] overflow-hidden"
+      className="relative scroll-mt-24 py-24 sm:py-32 bg-[#FAFAF7] overflow-x-clip"
     >
       <div className="absolute inset-0 opacity-[0.4] pointer-events-none bg-[radial-gradient(ellipse_at_80%_20%,rgba(196,87,42,0.06),transparent_50%)]" />
 
