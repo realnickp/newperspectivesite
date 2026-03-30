@@ -41,6 +41,18 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     siteName: 'New Perspective Support Services',
+    title:
+      'New Perspective Support Services | Daniel McGowan — Certified Interventionist & Speaker',
+    description:
+      'Daniel McGowan is a Certified Alcohol & Drug Counselor, Certified Interventionist, and Motivational Speaker based in New Jersey.',
+    url: 'https://newperspectivesupportservices.com',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title:
+      'New Perspective Support Services | Daniel McGowan — Certified Interventionist & Speaker',
+    description:
+      'Certified Interventionist and Motivational Speaker guiding individuals and families through addiction recovery in New Jersey.',
   },
 }
 
@@ -50,7 +62,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${dmSerif.variable} ${sourceSans.variable}`}>
+    <html lang="en" className={`${dmSerif.variable} ${sourceSans.variable} overflow-x-hidden`}>
       <head>
         <script
           type="application/ld+json"
@@ -89,7 +101,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col overflow-x-hidden">
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />
