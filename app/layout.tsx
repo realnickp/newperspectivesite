@@ -3,7 +3,10 @@ import { DM_Serif_Display, Source_Sans_3 } from 'next/font/google'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import FloatingCTA from '@/components/FloatingCTA'
+import { getSiteUrl } from '@/lib/site'
 import './globals.css'
+
+const siteUrl = getSiteUrl()
 
 const dmSerif = DM_Serif_Display({
   weight: '400',
@@ -19,7 +22,7 @@ const sourceSans = Source_Sans_3({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://newperspectivesupportservices.com'),
+  metadataBase: new URL(siteUrl),
   title: {
     default: 'New Perspective Support Services | Daniel McGowan — Certified Interventionist & Speaker',
     template: '%s | New Perspective Support Services',
@@ -45,7 +48,7 @@ export const metadata: Metadata = {
       'New Perspective Support Services | Daniel McGowan — Certified Interventionist & Speaker',
     description:
       'Daniel McGowan is a Certified Alcohol & Drug Counselor, Certified Interventionist, and Motivational Speaker based in New Jersey.',
-    url: 'https://newperspectivesupportservices.com',
+    url: siteUrl,
     images: [
       {
         url: '/opengraph-image',
@@ -88,7 +91,7 @@ export default function RootLayout({
               name: 'New Perspective Support Services',
               description:
                 'Professional addiction intervention, motivational speaking, and family support services in New Jersey.',
-              url: 'https://newperspectivesupportservices.com',
+              url: siteUrl,
               telephone: '908-692-8754',
               email: 'Dan@newperspectivesupportservices.com',
               address: {

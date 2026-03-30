@@ -5,7 +5,11 @@ export const SITE_CONFIG = {
   phone: '908-692-8754',
   phoneTel: 'tel:9086928754',
   location: 'New Jersey',
-  url: 'https://newperspectivesupportservices.com',
+  /** Public site URL; override with NEXT_PUBLIC_SITE_URL on Vercel when using a custom domain */
+  url:
+    (typeof process !== 'undefined' &&
+      process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '')) ||
+    'https://newperspectivesite.vercel.app',
   tagline: 'Coaching, Counseling & Consulting for Life\'s Challenges',
   calendlyUrl: 'https://calendly.com/danielbrendan0512/30min',
   credentials: [
