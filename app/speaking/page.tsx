@@ -88,7 +88,7 @@ export default function SpeakingPage() {
           src="/images/hero-crowd.png"
           alt="Daniel McGowan speaking to a packed auditorium"
           fill
-          className="object-cover object-[center_86%] sm:object-[center_58%] lg:object-center"
+          className="object-cover object-[80%_86%] sm:object-[center_58%] lg:object-center"
           sizes="100vw"
           priority
         />
