@@ -33,6 +33,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -81,13 +82,19 @@ body {
   background-color: var(--color-accent-primary);
   color: #FFFFFF;
   font-weight: 600;
-  padding: 0.875rem 2rem;
+  padding: 0.875rem 1.5rem;
   border-radius: 6px;
   font-size: 1rem;
+  min-height: 48px;
   transition: background-color 200ms ease, transform 150ms ease;
   text-decoration: none;
   border: none;
   cursor: pointer;
+}
+@media (min-width: 640px) {
+  .btn-primary {
+    padding: 0.875rem 2rem;
+  }
 }
 .btn-primary:hover {
   background-color: var(--color-accent-primary-hover);
@@ -103,13 +110,19 @@ body {
   background-color: transparent;
   color: var(--color-text-primary);
   font-weight: 600;
-  padding: 0.875rem 2rem;
+  padding: 0.875rem 1.5rem;
   border-radius: 6px;
   font-size: 1rem;
+  min-height: 48px;
   border: 1.5px solid var(--color-border-medium);
   transition: border-color 200ms ease, color 200ms ease;
   text-decoration: none;
   cursor: pointer;
+}
+@media (min-width: 640px) {
+  .btn-secondary {
+    padding: 0.875rem 2rem;
+  }
 }
 .btn-secondary:hover {
   border-color: var(--color-accent-primary);
@@ -206,6 +219,15 @@ body {
 .btn-secondary-on-dark:hover {
   border-color: var(--color-accent-primary);
   color: var(--color-accent-primary);
+}
+
+/* Scrollbar hide utility for horizontal nav */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
 
 /* Marquee animation */

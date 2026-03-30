@@ -53,13 +53,26 @@ export default function Footer() {
               {[
                 { label: 'Book Daniel to Speak', href: '/speaking' },
                 { label: "Daniel's Book", href: '/book' },
+                { label: 'Podcasts & interviews', href: '/#listen' },
+                { label: 'Book 30 min (Calendly)', href: SITE_CONFIG.calendlyUrl, external: true },
                 { label: 'Blog & Articles', href: '/blog' },
                 { label: 'Testimonials', href: '/testimonials' },
               ].map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-text-on-dark-secondary hover:text-accent-primary transition-colors text-sm">
-                    {link.label}
-                  </Link>
+                  {'external' in link && link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-text-on-dark-secondary hover:text-accent-primary transition-colors text-sm"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link href={link.href} className="text-text-on-dark-secondary hover:text-accent-primary transition-colors text-sm">
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -101,12 +114,13 @@ export default function Footer() {
 
         <div className="border-t border-border-dark my-8" />
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-text-on-dark-secondary text-xs">
-            Certified Alcohol &amp; Drug Counselor &nbsp;|&nbsp; Certified Interventionist &nbsp;|&nbsp; Certified Motivational Speaker
+        <div className="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
+          <p className="text-text-on-dark-secondary text-xs text-center md:text-left">
+            <span className="hidden sm:inline">Certified Alcohol &amp; Drug Counselor &nbsp;|&nbsp; Certified Interventionist &nbsp;|&nbsp; Certified Motivational Speaker</span>
+            <span className="sm:hidden">CADC &nbsp;|&nbsp; Certified Interventionist &nbsp;|&nbsp; CMS</span>
           </p>
           <p className="text-text-on-dark-secondary text-xs">
-            &copy; {new Date().getFullYear()} New Perspective Support Services. All rights reserved.
+            &copy; {new Date().getFullYear()} New Perspective Support Services
           </p>
         </div>
       </div>

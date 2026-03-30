@@ -14,13 +14,27 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-[100dvh] flex items-center overflow-hidden">
+      {/* Mobile-only hero video (portrait / small screens) */}
       <video
         autoPlay
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover lg:hidden"
         poster="/images/hero-crowd.png"
+        aria-hidden
+      >
+        <source src="/mcgowan-mobile-hero.mp4" type="video/mp4" />
+      </video>
+      {/* Desktop / large screens — original wide hero */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 hidden h-full w-full object-cover lg:block"
+        poster="/images/hero-crowd.png"
+        aria-hidden
       >
         <source src="/images/mcgowan.mp4" type="video/mp4" />
       </video>
@@ -37,7 +51,7 @@ export default function HeroSection() {
             Daniel McGowan &middot; New Jersey
           </motion.p>
 
-          <h1 className="font-serif text-[2.75rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[4.5rem] leading-[1.1] mb-8 text-white whitespace-nowrap">
+          <h1 className="font-serif text-[2.25rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[4.5rem] leading-[1.1] mb-8 text-white">
             {lines.map((line, lineIdx) => (
               <span key={lineIdx} className="block">
                 {line.map((word) => {
@@ -80,10 +94,11 @@ export default function HeroSection() {
           >
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-[#C4572A] text-white font-semibold px-8 py-4 rounded-md text-lg transition-all duration-200 hover:bg-[#A8471F] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#C4572A]/20"
+              className="inline-flex items-center justify-center gap-2 bg-[#C4572A] text-white font-semibold px-6 py-3.5 sm:px-8 sm:py-4 rounded-md text-base sm:text-lg transition-all duration-200 hover:bg-[#A8471F] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#C4572A]/20"
             >
               <Calendar className="w-5 h-5" />
-              Schedule a Free Consultation
+              <span className="hidden sm:inline">Schedule a Free Consultation</span>
+              <span className="sm:hidden">Free Consultation</span>
             </Link>
           </motion.div>
         </div>

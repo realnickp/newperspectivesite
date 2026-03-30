@@ -14,6 +14,7 @@ interface FormData {
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
   const {
     register,
     handleSubmit,
@@ -21,10 +22,28 @@ export default function ContactForm() {
   } = useForm<FormData>()
 
   const onSubmit = async (data: FormData) => {
-    // TODO: Connect to form submission service (e.g., Formspree, EmailJS, or custom API route)
-    console.log('Form submission:', data)
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    setSubmitted(true)
+    setSubmitError(null)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+      const json: { error?: string } = await res.json().catch(() => ({}))
+      if (!res.ok) {
+        setSubmitError(
+          typeof json.error === 'string'
+            ? json.error
+            : 'Could not send your message. Please try again or call us.'
+        )
+        return
+      }
+      setSubmitted(true)
+    } catch {
+      setSubmitError(
+        'Network error. Check your connection or call 908-692-8754.'
+      )
+    }
   }
 
   if (submitted) {
@@ -49,7 +68,7 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-bg-elevated border border-border-light rounded-xl p-8 space-y-6"
+      className="bg-bg-elevated border border-border-light rounded-xl p-5 sm:p-8 space-y-5 sm:space-y-6"
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
@@ -140,6 +159,15 @@ export default function ContactForm() {
           <p className="text-red-600 text-xs mt-1">{errors.message.message}</p>
         )}
       </div>
+
+      {submitError && (
+        <p
+          className="text-red-600 text-sm bg-red-50 border border-red-100 rounded-lg px-4 py-3"
+          role="alert"
+        >
+          {submitError}
+        </p>
+      )}
 
       <button
         type="submit"

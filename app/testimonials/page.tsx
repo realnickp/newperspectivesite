@@ -77,7 +77,7 @@ export default function TestimonialsPage() {
   return (
     <>
       {/* ===== HERO — Dark navy ===== */}
-      <section className="pt-32 pb-24 sm:pb-32 bg-[#1B2838] relative overflow-hidden">
+      <section className="pt-28 sm:pt-32 pb-16 sm:pb-32 bg-[#1B2838] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
           backgroundSize: '40px 40px',
@@ -87,7 +87,7 @@ export default function TestimonialsPage() {
             <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#E8D5B7] mb-6">
               Testimonials
             </p>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-white mb-6 leading-[1.1]">
+            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white mb-6 leading-[1.1]">
               Lives{' '}
               <span className="text-[#C4572A] italic">Transformed</span>
             </h1>
@@ -115,8 +115,8 @@ export default function TestimonialsPage() {
             {testimonials.map((testimonial, i) => (
               <AnimatedSection key={i} delay={(i % 3) * 0.1}>
                 <div className={`py-12 ${i < testimonials.length - 1 ? 'border-b border-[#D1CCC3]' : ''}`}>
-                  <div className="border-l-[3px] border-[#C4572A] pl-8 sm:pl-12">
-                    <blockquote className="font-serif text-xl sm:text-2xl md:text-3xl text-[#1B2838] italic leading-[1.4] mb-6">
+                  <div className="border-l-[3px] border-[#C4572A] pl-5 sm:pl-12">
+                    <blockquote className="font-serif text-lg sm:text-2xl md:text-3xl text-[#1B2838] italic leading-[1.4] mb-6">
                       &ldquo;{testimonial.quote}&rdquo;
                     </blockquote>
                     <div className="flex items-center gap-3">
@@ -170,7 +170,7 @@ export default function TestimonialsPage() {
       </section>
 
       {/* ===== CTA — Dark navy, matches homepage ===== */}
-      <section className="py-32 sm:py-40 bg-[#1B2838] relative overflow-hidden">
+      <section className="py-20 sm:py-32 md:py-40 bg-[#1B2838] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
           backgroundSize: '40px 40px',
@@ -178,7 +178,7 @@ export default function TestimonialsPage() {
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
-            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-white mb-6 leading-[1.1]">
+            <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white mb-6 leading-[1.1]">
               Ready to Experience the{' '}
               <span className="text-[#C4572A]">Difference?</span>
             </h2>
@@ -188,10 +188,11 @@ export default function TestimonialsPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-[#C4572A] text-white font-semibold px-10 py-5 rounded-md text-lg transition-all duration-200 hover:bg-[#A8471F] hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#C4572A]/20"
+              className="inline-flex items-center justify-center gap-2 bg-[#C4572A] text-white font-semibold px-7 py-4 sm:px-10 sm:py-5 rounded-md text-base sm:text-lg transition-all duration-200 hover:bg-[#A8471F] hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#C4572A]/20"
             >
               <Calendar className="w-5 h-5" />
-              Schedule a Free Consultation
+              <span className="hidden sm:inline">Schedule a Free Consultation</span>
+              <span className="sm:hidden">Free Consultation</span>
             </Link>
           </AnimatedSection>
         </div>

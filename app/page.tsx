@@ -16,7 +16,10 @@ import {
 } from 'lucide-react'
 import HeroSection from '@/components/HeroSection'
 import MarqueeStrip from '@/components/MarqueeStrip'
-import AnimatedSection from '@/components/AnimatedSection'
+import ListenConnectSection from '@/components/ListenConnectSection'
+import AnimatedSection, {
+  SCROLL_MOTION_DURATION_SLOW,
+} from '@/components/AnimatedSection'
 import AnimatedCounter from '@/components/AnimatedCounter'
 import { SITE_CONFIG } from '@/lib/constants'
 
@@ -26,48 +29,56 @@ export default function HomePage() {
       <HeroSection />
       <MarqueeStrip />
 
-      {/* ===== IMPACT STATEMENT — Giant typography ===== */}
-      <section className="relative py-32 sm:py-40 lg:py-52 overflow-hidden">
-        <div className="absolute inset-0 hidden lg:block">
-          <Image
-            src="/images/recovery-hope.png"
-            alt=""
-            fill
-            className="object-cover object-center opacity-55"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FAFAF7] via-[#FAFAF7]/70 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAF7] via-transparent to-[#FAFAF7]" />
-        </div>
+      {/* ===== IMPACT STATEMENT — sticky; credentials scrolls over ===== */}
+      <div className="relative isolate">
+        <section className="sticky top-0 z-0 flex min-h-[100dvh] items-center justify-center overflow-hidden bg-[#FAFAF7] py-20 sm:py-24">
+          <div className="absolute inset-0">
+            <Image
+              src="/images/recovery-hope.png"
+              alt=""
+              fill
+              className="object-cover object-center opacity-55"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#FAFAF7] via-[#FAFAF7]/75 to-[#FAFAF7]/90" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#FAFAF7_85%)] opacity-70" />
+          </div>
 
-        <div className="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <h2 className="font-serif text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5rem] xl:text-[5.5rem] leading-[1.05] text-[#1B2838] max-w-5xl">
-              When someone you love is struggling,{' '}
-              <span className="text-[#C4572A]">every day counts.</span>
-            </h2>
-          </AnimatedSection>
-          <AnimatedSection delay={0.15} className="mt-12 max-w-3xl">
-            <p className="text-[#5A6B7A] text-lg leading-relaxed whitespace-nowrap">
-              <span className="block">You&apos;ve watched them change. You&apos;ve had the conversations that go nowhere.</span>
-              <span className="block">You don&apos;t know what to do next. <strong className="text-[#1B2838]">You don&apos;t have to figure this out alone.</strong></span>
-            </p>
-            <Link href="/contact" className="btn-primary mt-8 inline-flex">
-              Talk to Daniel Today
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </AnimatedSection>
-        </div>
-      </section>
+          <div className="relative z-10 w-full max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <AnimatedSection>
+              <h2 className="font-serif text-[2rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5rem] xl:text-[5.5rem] leading-[1.05] text-[#1B2838] max-w-5xl mx-auto">
+                When someone you love is struggling,{' '}
+                <span className="text-[#C4572A]">every day counts.</span>
+              </h2>
+            </AnimatedSection>
+            <AnimatedSection delay={0.15} className="mt-10 sm:mt-12 max-w-3xl mx-auto">
+              <p className="text-[#5A6B7A] text-lg sm:text-xl leading-relaxed">
+                <span className="block sm:whitespace-nowrap">
+                  You&apos;ve watched them change. You&apos;ve had the conversations that go nowhere.
+                </span>
+                <span className="block sm:whitespace-nowrap mt-1">
+                  You don&apos;t know what to do next.{' '}
+                  <strong className="text-[#1B2838]">You don&apos;t have to figure this out alone.</strong>
+                </span>
+              </p>
+              <div className="mt-8 flex justify-center">
+                <Link href="/contact" className="btn-primary inline-flex">
+                  Talk to Daniel Today
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
 
       {/* ===== CREDENTIALS STRIP ===== */}
-      <section className="relative py-20 sm:py-24 overflow-hidden bg-[#1B2838]">
-        <div className="absolute inset-0 opacity-10">
+      <section className="relative z-10 py-20 sm:py-24 overflow-hidden bg-[#1B2838] shadow-[0_-12px_40px_rgba(0,0,0,0.12)]">
+        <div className="absolute inset-0 opacity-[0.14]">
           <Image
-            src="/images/recovery-hope.png"
+            src="/images/credentials-bg.png"
             alt=""
             fill
-            className="object-cover"
+            className="object-cover object-center"
             sizes="100vw"
           />
         </div>
@@ -102,17 +113,18 @@ export default function HomePage() {
                 <div className="text-center p-8 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm">
                   <cred.icon className="w-8 h-8 text-[#C4572A] mx-auto mb-4" />
                   <div className="font-serif text-3xl sm:text-4xl text-white mb-2">{cred.title}</div>
-                  <div className="text-sm font-semibold text-[#E8D5B7] mb-2">{cred.desc}</div>
-                  <div className="text-sm text-[#A8B4C0] leading-relaxed">{cred.context}</div>
+                  <div className="text-base sm:text-lg font-semibold text-[#E8D5B7] mb-3">{cred.desc}</div>
+                  <div className="text-base sm:text-lg text-[#A8B4C0] leading-relaxed">{cred.context}</div>
                 </div>
               </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
+      </div>
 
       {/* ===== SERVICES — Alternating editorial layout ===== */}
-      <section className="py-24 sm:py-32 bg-[#F2F0EB]">
+      <section className="py-16 sm:py-24 md:py-32 bg-[#F2F0EB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="mb-20">
             <p className="eyebrow mb-4">What Daniel Offers</p>
@@ -121,21 +133,34 @@ export default function HomePage() {
             </h2>
           </AnimatedSection>
 
-          {/* Service 1 — Title left, description right */}
-          <AnimatedSection className="mb-0">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start py-16 border-t border-[#D1CCC3]">
+          {/* Service 1 — columns slide in from alternating sides */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start py-10 sm:py-16 border-t border-[#D1CCC3]">
+            <AnimatedSection
+              slideFrom="left"
+              duration={SCROLL_MOTION_DURATION_SLOW}
+              distance={44}
+              className="min-w-0"
+            >
               <div>
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-3 mb-4 sm:mb-6">
                   <span className="text-[#C4572A] font-serif text-sm">01</span>
                   <div className="h-px w-12 bg-[#C4572A]/30" />
                 </div>
                 <Link href="/speaking" className="group">
-                  <h3 className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#1B2838] leading-[1.05] group-hover:text-[#C4572A] transition-colors duration-300">
+                  <h3 className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#1B2838] leading-[1.05] group-hover:text-[#C4572A] transition-colors duration-300">
                     Motivational Speaking
                   </h3>
                 </Link>
               </div>
-              <div className="lg:pt-10">
+            </AnimatedSection>
+            <AnimatedSection
+              slideFrom="right"
+              delay={0.18}
+              duration={SCROLL_MOTION_DURATION_SLOW}
+              distance={44}
+              className="lg:pt-10 min-w-0"
+            >
+              <div>
                 <p className="text-[#5A6B7A] text-lg leading-relaxed mb-6">
                   Inspiring audiences at corporate events, schools, and community
                   organizations to overcome adversity and unlock their potential.
@@ -145,13 +170,19 @@ export default function HomePage() {
                   Book Daniel to Speak <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
-            </div>
-          </AnimatedSection>
+            </AnimatedSection>
+          </div>
 
-          {/* Service 2 — Description left, title right */}
-          <AnimatedSection>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start py-16 border-t border-[#D1CCC3]">
-              <div className="order-2 lg:order-1 lg:pt-10">
+          {/* Service 2 — inverted slide directions */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start py-10 sm:py-16 border-t border-[#D1CCC3]">
+            <AnimatedSection
+              slideFrom="right"
+              delay={0.18}
+              duration={SCROLL_MOTION_DURATION_SLOW}
+              distance={44}
+              className="order-2 lg:order-1 lg:pt-10 min-w-0"
+            >
+              <div>
                 <p className="text-[#5A6B7A] text-lg leading-relaxed mb-6">
                   Compassionate, structured interventions that help families guide
                   their loved ones toward treatment — with professional support
@@ -161,35 +192,55 @@ export default function HomePage() {
                   Learn About Interventions <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
-              <div className="order-1 lg:order-2 lg:text-right">
+            </AnimatedSection>
+            <AnimatedSection
+              slideFrom="left"
+              duration={SCROLL_MOTION_DURATION_SLOW}
+              distance={44}
+              className="order-1 lg:order-2 lg:text-right min-w-0"
+            >
+              <div>
                 <div className="flex items-center gap-3 mb-6 lg:justify-end">
                   <span className="text-[#C4572A] font-serif text-sm">02</span>
                   <div className="h-px w-12 bg-[#C4572A]/30" />
                 </div>
                 <Link href="/services#intervention" className="group">
-                  <h3 className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#1B2838] leading-[1.05] group-hover:text-[#C4572A] transition-colors duration-300">
+                  <h3 className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#1B2838] leading-[1.05] group-hover:text-[#C4572A] transition-colors duration-300">
                     Substance Abuse Intervention
                   </h3>
                 </Link>
               </div>
-            </div>
-          </AnimatedSection>
+            </AnimatedSection>
+          </div>
 
-          {/* Service 3 — Title left, description right */}
-          <AnimatedSection>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start py-16 border-t border-[#D1CCC3] border-b">
+          {/* Service 3 — same pattern as row 1 */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start py-10 sm:py-16 border-t border-[#D1CCC3] border-b">
+            <AnimatedSection
+              slideFrom="left"
+              duration={SCROLL_MOTION_DURATION_SLOW}
+              distance={44}
+              className="min-w-0"
+            >
               <div>
                 <div className="flex items-center gap-3 mb-6">
                   <span className="text-[#C4572A] font-serif text-sm">03</span>
                   <div className="h-px w-12 bg-[#C4572A]/30" />
                 </div>
                 <Link href="/services#family" className="group">
-                  <h3 className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#1B2838] leading-[1.05] group-hover:text-[#C4572A] transition-colors duration-300">
+                  <h3 className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#1B2838] leading-[1.05] group-hover:text-[#C4572A] transition-colors duration-300">
                     Family Support &amp; Coaching
                   </h3>
                 </Link>
               </div>
-              <div className="lg:pt-10">
+            </AnimatedSection>
+            <AnimatedSection
+              slideFrom="right"
+              delay={0.18}
+              duration={SCROLL_MOTION_DURATION_SLOW}
+              distance={44}
+              className="lg:pt-10 min-w-0"
+            >
+              <div>
                 <p className="text-[#5A6B7A] text-lg leading-relaxed mb-6">
                   Equipping families with communication tools, coping strategies,
                   and resources to heal alongside their loved one. Plus one-on-one
@@ -199,17 +250,17 @@ export default function HomePage() {
                   Explore Programs <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
-            </div>
-          </AnimatedSection>
+            </AnimatedSection>
+          </div>
 
         </div>
       </section>
 
       {/* ===== BOOK TEASER ===== */}
-      <section className="py-24 sm:py-32">
+      <section className="py-16 sm:py-24 md:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <AnimatedSection className="flex justify-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+            <AnimatedSection slideFrom="left" className="flex justify-center">
               <div className="relative">
                 <Image
                   src="/images/mcgowanbook.jpg"
@@ -221,7 +272,7 @@ export default function HomePage() {
                 />
               </div>
             </AnimatedSection>
-            <AnimatedSection delay={0.15}>
+            <AnimatedSection slideFrom="right" delay={0.12}>
               <p className="eyebrow mb-4">Published Author</p>
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#1B2838] mb-3 leading-[1.1]">
                 New Perspectives
@@ -256,7 +307,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== PULL QUOTE — Full-width dramatic ===== */}
-      <section className="py-32 sm:py-40 lg:py-48 relative overflow-hidden">
+      <section className="py-20 sm:py-32 lg:py-48 relative overflow-hidden">
         <div className="absolute inset-0 bg-[#1B2838]" />
         <div className="absolute inset-0 opacity-20">
           <Image
@@ -269,7 +320,7 @@ export default function HomePage() {
         </div>
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
-            <blockquote className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.15] mb-8">
+            <blockquote className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.15] mb-8">
               &ldquo;Fear kills more dreams than failure ever could.&rdquo;
             </blockquote>
             <p className="text-[#C4572A] font-medium text-lg tracking-wide">
@@ -280,12 +331,12 @@ export default function HomePage() {
       </section>
 
       {/* ===== ABOUT — Split with dramatic portrait ===== */}
-      <section className="py-32 sm:py-40 lg:py-52">
+      <section className="py-16 sm:py-24 md:py-32 lg:py-52">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
             {/* Image side — bleeds to edge */}
-            <AnimatedSection className="relative">
-              <div className="relative aspect-[3/4] lg:aspect-auto lg:h-full min-h-[500px] rounded-sm overflow-hidden">
+            <AnimatedSection slideFrom="left" className="relative">
+              <div className="relative aspect-[3/4] lg:aspect-auto lg:h-full min-h-[350px] sm:min-h-[500px] rounded-sm overflow-hidden">
                 <Image
                   src="/images/bw-elegant.png"
                   alt="Daniel McGowan — elegant black and white portrait"
@@ -299,7 +350,7 @@ export default function HomePage() {
             </AnimatedSection>
 
             {/* Text side */}
-            <AnimatedSection delay={0.15} className="flex items-center">
+            <AnimatedSection slideFrom="right" delay={0.12} className="flex items-center">
               <div className="lg:pl-16 xl:pl-24 py-12 lg:py-0">
                 <p className="eyebrow mb-6">About Daniel</p>
                 <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#1B2838] mb-8 leading-[1.1]">
@@ -336,40 +387,40 @@ export default function HomePage() {
       </section>
 
       {/* ===== SPEAKING CTA — Dramatic HOPE shirt ===== */}
-      <section className="relative min-h-[80vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[60vh] sm:min-h-[80vh] flex items-center overflow-hidden">
         <Image
           src="/images/speaking-outdoor.png"
           alt="Daniel McGowan speaking at an outdoor event"
           fill
-          className="object-cover object-[center_65%]"
+          className="object-cover object-[center_58%]"
           sizes="100vw"
           quality={90}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-24">
-          <AnimatedSection className="max-w-2xl">
-            <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#E8D5B7] mb-6">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 sm:py-24">
+          <AnimatedSection slideFrom="left" className="max-w-2xl">
+            <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#E8D5B7] mb-4 sm:mb-6">
               Motivational Speaker
             </p>
-            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-white mb-6 leading-[1.1]">
+            <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white mb-4 sm:mb-6 leading-[1.1]">
               Book Daniel for Your Next Event
             </h2>
-            <p className="text-[#A8B4C0] text-lg leading-relaxed mb-10 max-w-lg">
+            <p className="text-white text-base sm:text-lg leading-relaxed mb-8 sm:mb-10 max-w-lg">
               Powerful, evidence-informed talks on recovery, resilience, and
               purpose — for corporate events, schools, nonprofits, and communities.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/speaking"
-                className="inline-flex items-center justify-center gap-2 bg-[#C4572A] text-white font-semibold px-8 py-4 rounded-md text-lg transition-all duration-200 hover:bg-[#A8471F] hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 bg-[#C4572A] text-white font-semibold px-6 py-3.5 sm:px-8 sm:py-4 rounded-md text-base sm:text-lg transition-all duration-200 hover:bg-[#A8471F] hover:-translate-y-0.5"
               >
                 See Speaking Topics
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <a
                 href={SITE_CONFIG.phoneTel}
-                className="inline-flex items-center justify-center gap-2 text-white font-semibold px-8 py-4 rounded-md text-lg border border-white/20 transition-all duration-200 hover:bg-white/10"
+                className="inline-flex items-center justify-center gap-2 text-white font-semibold px-6 py-3.5 sm:px-8 sm:py-4 rounded-md text-base sm:text-lg border border-white/20 transition-all duration-200 hover:bg-white/10"
               >
                 <Phone className="w-5 h-5" />
                 {SITE_CONFIG.phone}
@@ -380,16 +431,16 @@ export default function HomePage() {
       </section>
 
       {/* ===== THE APPROACH — What makes Daniel different ===== */}
-      <section className="py-24 sm:py-32 bg-[#F2F0EB]">
+      <section className="py-16 sm:py-24 md:py-32 bg-[#F2F0EB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="mb-16">
+          <AnimatedSection className="mb-10 sm:mb-16">
             <p className="eyebrow mb-4">The Approach</p>
             <h2 className="font-serif text-4xl sm:text-5xl text-[#1B2838] max-w-2xl">
               What Makes Working With Daniel Different
             </h2>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 lg:gap-x-12 gap-y-10 sm:gap-y-16">
             {[
               {
                 number: '01',
@@ -407,7 +458,11 @@ export default function HomePage() {
                 desc: 'You\'re not just hiring a service — you\'re gaining a dedicated partner who walks alongside you through every challenge, every milestone, and every breakthrough.',
               },
             ].map((item, i) => (
-              <AnimatedSection key={item.number} delay={i * 0.1}>
+              <AnimatedSection
+                key={item.number}
+                delay={i * 0.1}
+                slideFrom={i === 0 ? 'left' : i === 2 ? 'right' : 'up'}
+              >
                 <div className="flex items-center gap-3 mb-6">
                   <span className="text-[#C4572A] font-serif text-sm">{item.number}</span>
                   <div className="h-px flex-1 bg-[#C4572A]/30" />
@@ -420,8 +475,10 @@ export default function HomePage() {
         </div>
       </section>
 
+      <ListenConnectSection />
+
       {/* ===== FINAL CTA — Clean, powerful ===== */}
-      <section className="py-32 sm:py-40 bg-[#1B2838] relative overflow-hidden">
+      <section className="py-20 sm:py-32 md:py-40 bg-[#1B2838] relative overflow-hidden">
         {/* Subtle background pattern */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
@@ -430,24 +487,25 @@ export default function HomePage() {
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
-            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-white mb-6 leading-[1.1]">
+            <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white mb-6 leading-[1.1]">
               Ready to Take the First Step?
             </h2>
-            <p className="text-[#A8B4C0] text-lg max-w-2xl mx-auto mb-12">
-              Schedule a free 20-minute consultation with Daniel. No pressure.
+            <p className="text-[#A8B4C0] text-base sm:text-lg max-w-2xl mx-auto mb-8 sm:mb-12">
+              Schedule a free 30-minute consultation with Daniel. No pressure.
               Just a conversation about what you&apos;re facing and how he can help.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-[#C4572A] text-white font-semibold px-10 py-5 rounded-md text-lg transition-all duration-200 hover:bg-[#A8471F] hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#C4572A]/20"
+                className="inline-flex items-center justify-center gap-2 bg-[#C4572A] text-white font-semibold px-7 py-4 sm:px-10 sm:py-5 rounded-md text-base sm:text-lg transition-all duration-200 hover:bg-[#A8471F] hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#C4572A]/20"
               >
                 <Calendar className="w-5 h-5" />
-                Schedule a Free Consultation
+                <span className="hidden sm:inline">Schedule a Free Consultation</span>
+                <span className="sm:hidden">Free Consultation</span>
               </Link>
               <a
                 href={SITE_CONFIG.phoneTel}
-                className="inline-flex items-center justify-center gap-2 text-white font-semibold px-10 py-5 rounded-md text-lg border border-white/15 transition-all duration-200 hover:bg-white/8"
+                className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 sm:px-10 sm:py-5 rounded-md text-base sm:text-lg border border-white/15 transition-all duration-200 hover:bg-white/8"
               >
                 <Phone className="w-5 h-5" />
                 Call {SITE_CONFIG.phone}

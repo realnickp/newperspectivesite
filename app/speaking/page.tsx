@@ -20,6 +20,7 @@ import {
   Calendar,
 } from 'lucide-react'
 import AnimatedSection from '@/components/AnimatedSection'
+import ListenConnectSection from '@/components/ListenConnectSection'
 import { SITE_CONFIG } from '@/lib/constants'
 
 export const metadata: Metadata = {
@@ -82,17 +83,17 @@ export default function SpeakingPage() {
   return (
     <>
       {/* Hero — Full-bleed image with navy overlay */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[62vh] sm:min-h-[70vh] flex items-center overflow-hidden">
         <Image
           src="/images/hero-crowd.png"
           alt="Daniel McGowan speaking to a packed auditorium"
           fill
-          className="object-cover"
+          className="object-cover object-[center_86%] sm:object-[center_58%] lg:object-center"
           sizes="100vw"
           priority
         />
         <div className="absolute inset-0 bg-[#1B2838]/80" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-40 lg:py-48">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-40 lg:py-48">
           <AnimatedSection>
             <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#E8D5B7] mb-6">
               <CheckCircle className="w-4 h-4 inline-block mr-2 -mt-0.5" />
@@ -146,7 +147,7 @@ export default function SpeakingPage() {
             </p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-16 gap-y-10 sm:gap-y-16">
             {speakingTopics.map((topic, i) => (
               <AnimatedSection key={topic.title} delay={i * 0.08}>
                 <div>
@@ -288,8 +289,8 @@ export default function SpeakingPage() {
               },
             ].map((testimonial, i) => (
               <AnimatedSection key={i} delay={i * 0.15}>
-                <div className="border-l-4 border-[#C4572A] pl-8 sm:pl-12 py-2">
-                  <blockquote className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#1B2838] leading-[1.3] italic mb-8">
+                <div className="border-l-4 border-[#C4572A] pl-6 sm:pl-12 py-2">
+                  <blockquote className="font-serif text-xl sm:text-3xl md:text-4xl text-[#1B2838] leading-[1.3] italic mb-6 sm:mb-8">
                     &ldquo;{testimonial.quote}&rdquo;
                   </blockquote>
                   <div>
@@ -307,8 +308,10 @@ export default function SpeakingPage() {
         </div>
       </section>
 
+      <ListenConnectSection />
+
       {/* CTA — Dark navy with dot pattern */}
-      <section className="py-32 sm:py-40 bg-[#1B2838] relative overflow-hidden">
+      <section className="py-20 sm:py-32 md:py-40 bg-[#1B2838] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
           backgroundSize: '40px 40px',
@@ -319,24 +322,25 @@ export default function SpeakingPage() {
             <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#E8D5B7] mb-6">
               Get Started
             </p>
-            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-white mb-6 leading-[1.1]">
+            <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white mb-6 leading-[1.1]">
               Ready to Inspire Your Audience?
             </h2>
-            <p className="text-[#A8B4C0] text-lg mb-12 max-w-2xl mx-auto">
+            <p className="text-[#A8B4C0] text-base sm:text-lg mb-8 sm:mb-12 max-w-2xl mx-auto">
               Let&apos;s discuss your event, your audience, and how Daniel can
               deliver a talk that makes a lasting impact.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-[#C4572A] text-white font-semibold px-10 py-5 rounded-md text-lg transition-all duration-200 hover:bg-[#A8471F] hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#C4572A]/20"
+                className="inline-flex items-center justify-center gap-2 bg-[#C4572A] text-white font-semibold px-7 py-4 sm:px-10 sm:py-5 rounded-md text-base sm:text-lg transition-all duration-200 hover:bg-[#A8471F] hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#C4572A]/20"
               >
                 <Calendar className="w-5 h-5" />
-                Book Daniel for Your Event
+                <span className="hidden sm:inline">Book Daniel for Your Event</span>
+                <span className="sm:hidden">Book Daniel</span>
               </Link>
               <a
                 href={SITE_CONFIG.phoneTel}
-                className="inline-flex items-center justify-center gap-2 text-white font-semibold px-10 py-5 rounded-md text-lg border border-white/15 transition-all duration-200 hover:bg-white/8"
+                className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 sm:px-10 sm:py-5 rounded-md text-base sm:text-lg border border-white/15 transition-all duration-200 hover:bg-white/8"
               >
                 <Phone className="w-5 h-5" />
                 Call {SITE_CONFIG.phone}

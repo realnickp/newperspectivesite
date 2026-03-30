@@ -279,7 +279,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   return (
     <>
       {/* ── Hero Header ── */}
-      <section className="bg-[#1B2838] pt-32 sm:pt-40 pb-20 sm:pb-28">
+      <section className="bg-[#1B2838] pt-28 sm:pt-40 pb-16 sm:pb-28">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <Link
@@ -298,7 +298,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           </AnimatedSection>
 
           <AnimatedSection delay={0.2}>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-white leading-[1.1] mb-8">
+            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white leading-[1.1] mb-8">
               {post.title}
             </h1>
           </AnimatedSection>
@@ -399,7 +399,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
           <AnimatedSection delay={0.2}>
             <p className="text-[#A8B4C0] text-lg leading-relaxed max-w-xl mx-auto mb-10">
-              Schedule a free 20-minute consultation — no pressure, no commitment.
+              Schedule a free 30-minute consultation — no pressure, no commitment.
               Daniel is here to listen and help you find the right path forward.
             </p>
           </AnimatedSection>

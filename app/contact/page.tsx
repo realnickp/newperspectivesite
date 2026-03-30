@@ -9,14 +9,14 @@ import { SITE_CONFIG } from '@/lib/constants'
 export const metadata: Metadata = {
   title: 'Contact Daniel McGowan',
   description:
-    "Get in touch with Daniel McGowan for intervention services, family support, motivational speaking, or coaching. Schedule a free 20-minute consultation today. Serving NJ and beyond.",
+    "Get in touch with Daniel McGowan for intervention services, family support, motivational speaking, or coaching. Schedule a free 30-minute consultation today. Serving NJ and beyond.",
 }
 
 export default function ContactPage() {
   return (
     <>
       {/* ===== HERO — Dark navy editorial ===== */}
-      <section className="relative pt-32 pb-24 sm:pb-32 bg-[#1B2838] overflow-hidden">
+      <section className="relative pt-28 sm:pt-32 pb-16 sm:pb-32 bg-[#1B2838] overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
           backgroundSize: '40px 40px',
@@ -27,7 +27,7 @@ export default function ContactPage() {
             <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#E8D5B7] mb-6">
               Get in Touch
             </p>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-white leading-[1.1] mb-6">
+            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white leading-[1.1] mb-6">
               Let&apos;s Start a Conversation
             </h1>
             <p className="text-[#A8B4C0] text-lg max-w-2xl mx-auto leading-relaxed">
@@ -38,10 +38,10 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ===== CONTACT INFO — Editorial two-column ===== */}
-      <section className="py-24 sm:py-32 bg-[#FAFAF7]">
+      {/* ===== CONTACT + CALENDLY — Details left, booking right ===== */}
+      <section className="py-16 sm:py-24 md:py-32 bg-[#FAFAF7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-12 xl:gap-16 items-start">
             <div>
               <AnimatedSection>
                 <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C4572A] mb-4">
@@ -109,10 +109,8 @@ export default function ContactPage() {
                 ))}
                 <div className="border-t border-[#D1CCC3]" />
               </div>
-            </div>
 
-            <div className="lg:pt-16">
-              <AnimatedSection delay={0.2}>
+              <AnimatedSection delay={0.2} className="mt-12">
                 <div className="border-l-2 border-[#C4572A] pl-8 py-2">
                   <p className="font-serif text-2xl sm:text-3xl text-[#1B2838] leading-snug mb-6">
                     &ldquo;The hardest part is making the first call.
@@ -124,14 +122,14 @@ export default function ContactPage() {
                 </div>
               </AnimatedSection>
 
-              <AnimatedSection delay={0.3} className="mt-16">
+              <AnimatedSection delay={0.3} className="mt-12">
                 <div className="bg-[#F2F0EB] rounded-sm p-8">
                   <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C4572A] mb-3">
                     What to Expect
                   </p>
                   <ul className="space-y-3">
                     {[
-                      'Free 20-minute initial consultation',
+                      'Free 30-minute initial consultation',
                       'Confidential, judgment-free conversation',
                       'Clear next steps tailored to your situation',
                       'Flexible meeting options — phone, video, or in person',
@@ -145,40 +143,35 @@ export default function ContactPage() {
                 </div>
               </AnimatedSection>
             </div>
+
+            <div
+              id="book"
+              className="lg:sticky lg:top-28 rounded-sm border border-[#1B2838]/10 bg-[#1B2838] p-4 sm:p-6 md:p-8 shadow-[0_24px_60px_rgba(27,40,56,0.12)]"
+            >
+              <AnimatedSection>
+                <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#E8D5B7] mb-4">
+                  Book a Time
+                </p>
+                <h2 className="font-serif text-2xl sm:text-3xl text-white mb-3 leading-[1.15]">
+                  Schedule a Free 30-Minute Call
+                </h2>
+                <p className="text-[#A8B4C0] text-base leading-relaxed mb-8">
+                  Pick a time that works for you. No pressure — just a conversation
+                  about what you&apos;re facing and how Daniel can help.
+                </p>
+              </AnimatedSection>
+              <AnimatedSection delay={0.1}>
+                <CalendlyEmbed className="max-w-none w-full" />
+              </AnimatedSection>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ===== CALENDLY — Clean editorial ===== */}
-      <section id="book" className="py-24 sm:py-32 bg-[#1B2838] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
-          backgroundSize: '40px 40px',
-        }} />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-16">
-            <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#E8D5B7] mb-6">
-              Book a Time
-            </p>
-            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-white mb-4 leading-[1.1]">
-              Schedule a Free 20-Minute Call
-            </h2>
-            <p className="text-[#A8B4C0] text-lg max-w-xl mx-auto">
-              Pick a time that works for you. No pressure — just a conversation
-              about what you&apos;re facing and how Daniel can help.
-            </p>
-          </AnimatedSection>
-          <AnimatedSection delay={0.15}>
-            <CalendlyEmbed />
-          </AnimatedSection>
-        </div>
-      </section>
-
       {/* ===== CONTACT FORM — Surface editorial ===== */}
-      <section className="py-24 sm:py-32 bg-[#F2F0EB]">
+      <section className="py-16 sm:py-24 md:py-32 bg-[#F2F0EB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
             <div>
               <AnimatedSection>
                 <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C4572A] mb-4">
@@ -228,7 +221,7 @@ export default function ContactPage() {
       </section>
 
       {/* ===== FINAL CTA — Dark navy ===== */}
-      <section className="py-32 sm:py-40 bg-[#1B2838] relative overflow-hidden">
+      <section className="py-20 sm:py-32 md:py-40 bg-[#1B2838] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
           backgroundSize: '40px 40px',
@@ -236,7 +229,7 @@ export default function ContactPage() {
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
-            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-white mb-6 leading-[1.1]">
+            <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white mb-6 leading-[1.1]">
               The First Step Is the Hardest.
               <br />
               <span className="text-[#C4572A]">Take It Today.</span>
@@ -248,17 +241,18 @@ export default function ContactPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href={SITE_CONFIG.phoneTel}
-                className="inline-flex items-center justify-center gap-2 bg-[#C4572A] text-white font-semibold px-10 py-5 rounded-md text-lg transition-all duration-200 hover:bg-[#A8471F] hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#C4572A]/20"
+                className="inline-flex items-center justify-center gap-2 bg-[#C4572A] text-white font-semibold px-7 py-4 sm:px-10 sm:py-5 rounded-md text-base sm:text-lg transition-all duration-200 hover:bg-[#A8471F] hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#C4572A]/20"
               >
                 <Phone className="w-5 h-5" />
                 Call {SITE_CONFIG.phone}
               </a>
               <Link
                 href="/contact#book"
-                className="inline-flex items-center justify-center gap-2 text-white font-semibold px-10 py-5 rounded-md text-lg border border-white/15 transition-all duration-200 hover:bg-white/[0.08]"
+                className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 sm:px-10 sm:py-5 rounded-md text-base sm:text-lg border border-white/15 transition-all duration-200 hover:bg-white/[0.08]"
               >
                 <Calendar className="w-5 h-5" />
-                Schedule a Consultation
+                <span className="hidden sm:inline">Schedule a Consultation</span>
+                <span className="sm:hidden">Schedule a Call</span>
               </Link>
             </div>
           </AnimatedSection>

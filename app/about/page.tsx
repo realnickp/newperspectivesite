@@ -25,7 +25,7 @@ export default function AboutPage() {
                   <p className="text-[#E8D5B7] uppercase tracking-[0.25em] text-xs font-semibold mb-8">
                     Counselor &middot; Interventionist &middot; Speaker &middot; Author
                   </p>
-                  <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl xl:text-8xl text-white leading-[1.02] mb-8">
+                  <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl xl:text-8xl text-white leading-[1.02] mb-8">
                     Daniel<br />
                     <span className="text-[#C4572A] italic">McGowan</span>
                   </h1>
@@ -57,7 +57,7 @@ export default function AboutPage() {
             </div>
 
             {/* Image side */}
-            <div className="relative h-[60vh] lg:h-auto">
+            <div className="relative h-[45vh] sm:h-[60vh] lg:h-auto">
               <Image
                 src="/images/bw-elegant.png"
                 alt="Daniel McGowan"
@@ -74,10 +74,10 @@ export default function AboutPage() {
       </section>
 
       {/* ===== OPENING HOOK — Big editorial statement ===== */}
-      <section className="py-24 sm:py-32 lg:py-40 bg-[#FAFAF7]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-24 lg:py-40 bg-[#FAFAF7]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] text-[#1B2838] leading-[1.15] max-w-4xl">
+            <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-[3.5rem] text-[#1B2838] leading-[1.15] max-w-4xl mx-auto">
               Addiction took everything from me — my relationships, my career,
               my sense of self. Today, I live a radically transformed life.{' '}
               <span className="text-[#C4572A] italic">
@@ -145,8 +145,8 @@ export default function AboutPage() {
               </AnimatedSection>
 
               <AnimatedSection delay={0.2}>
-                <blockquote className="my-12 py-10 border-y border-[#D1CCC3]">
-                  <p className="font-serif text-2xl sm:text-3xl text-[#1B2838] leading-[1.3] italic">
+                <blockquote className="my-8 sm:my-12 py-8 sm:py-10 border-y border-[#D1CCC3]">
+                  <p className="font-serif text-xl sm:text-3xl text-[#1B2838] leading-[1.3] italic">
                     &ldquo;When I sit with a family in crisis, they&apos;re not talking
                     to someone who read about it. They&apos;re talking to someone who
                     lived it — and made it to the other side.&rdquo;
@@ -225,7 +225,7 @@ export default function AboutPage() {
                       : ''
                   }`}
                 >
-                  <span className="font-serif text-6xl sm:text-7xl text-[#C4572A]/30 block mb-4 leading-none">
+                  <span className="font-serif text-5xl sm:text-7xl text-[#C4572A]/30 block mb-4 leading-none">
                     {cred.abbr}
                   </span>
                   <h3 className="font-serif text-xl sm:text-2xl text-white mb-3">
@@ -255,7 +255,7 @@ export default function AboutPage() {
             </h2>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 lg:gap-x-12 gap-y-10 sm:gap-y-16">
             {[
               {
                 num: '01',
@@ -323,7 +323,7 @@ export default function AboutPage() {
       </section>
 
       {/* ===== CTA — Full-width dark ===== */}
-      <section className="relative py-32 sm:py-40 bg-[#1B2838] overflow-hidden">
+      <section className="relative py-20 sm:py-32 md:py-40 bg-[#1B2838] overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -347,7 +347,7 @@ export default function AboutPage() {
             <p className="text-[#E8D5B7] uppercase tracking-[0.25em] text-xs font-semibold mb-6">
               Let&apos;s Talk
             </p>
-            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-white mb-6 leading-[1.1]">
+            <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white mb-6 leading-[1.1]">
               You don&apos;t have to{' '}
               <span className="text-[#C4572A] italic">figure this out alone</span>
             </h2>
@@ -362,14 +362,15 @@ export default function AboutPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-[#C4572A] text-white font-semibold px-10 py-5 rounded-sm text-lg transition-all duration-200 hover:bg-[#A84522]"
+                className="inline-flex items-center justify-center gap-2 bg-[#C4572A] text-white font-semibold px-7 py-4 sm:px-10 sm:py-5 rounded-sm text-base sm:text-lg transition-all duration-200 hover:bg-[#A84522]"
               >
                 <Calendar className="w-5 h-5" />
-                Schedule a Conversation
+                <span className="hidden sm:inline">Schedule a Conversation</span>
+                <span className="sm:hidden">Schedule a Call</span>
               </Link>
               <a
                 href={SITE_CONFIG.phoneTel}
-                className="inline-flex items-center justify-center gap-2 text-white font-semibold px-10 py-5 rounded-sm text-lg border border-white/15 transition-all duration-200 hover:bg-white/5"
+                className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 sm:px-10 sm:py-5 rounded-sm text-base sm:text-lg border border-white/15 transition-all duration-200 hover:bg-white/5"
               >
                 <Phone className="w-5 h-5" />
                 Call {SITE_CONFIG.phone}

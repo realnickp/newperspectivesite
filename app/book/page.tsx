@@ -68,7 +68,7 @@ export default function BookPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative bg-[#1B2838] pt-32 pb-24 sm:pb-32 lg:pb-40 overflow-hidden">
+      <section className="relative bg-[#1B2838] pt-28 sm:pt-32 pb-16 sm:pb-32 lg:pb-40 overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -79,7 +79,7 @@ export default function BookPage() {
         />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
             <AnimatedSection className="flex justify-center lg:justify-end order-1 lg:order-1">
               <div className="relative">
                 <div className="absolute -inset-8 bg-[#C4572A]/10 rounded-sm blur-3xl" />
@@ -226,7 +226,7 @@ export default function BookPage() {
       </section>
 
       {/* ── Excerpt / Look Inside ── */}
-      <section className="relative py-32 sm:py-40 bg-[#1B2838] overflow-hidden">
+      <section className="relative py-20 sm:py-32 md:py-40 bg-[#1B2838] overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -238,8 +238,8 @@ export default function BookPage() {
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
-            <Quote className="w-16 h-16 text-[#C4572A]/30 mx-auto mb-8" />
-            <blockquote className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-[1.3] italic mb-8">
+            <Quote className="w-12 h-12 sm:w-16 sm:h-16 text-[#C4572A]/30 mx-auto mb-6 sm:mb-8" />
+            <blockquote className="font-serif text-xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-[1.3] italic mb-8">
               &ldquo;The moment I realized that my story wasn&apos;t just mine
               — that it could help someone else find their way out of the
               darkness — everything changed.&rdquo;
@@ -329,16 +329,16 @@ export default function BookPage() {
       </section>
 
       {/* ── About the Author ── */}
-      <section className="py-24 sm:py-32 bg-[#FAFAF7]">
+      <section className="py-16 sm:py-24 md:py-32 bg-[#FAFAF7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
             <AnimatedSection>
-              <div className="relative aspect-square max-w-md mx-auto overflow-hidden rounded-sm">
+              <div className="relative aspect-[3/4] max-w-md mx-auto overflow-hidden rounded-sm">
                 <Image
                   src="/images/portrait-seated.png"
                   alt="Daniel McGowan — Author"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                   sizes="(max-width: 768px) 100vw, 448px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1B2838]/30 to-transparent" />
@@ -401,7 +401,7 @@ export default function BookPage() {
       </section>
 
       {/* ── Final CTA ── */}
-      <section className="relative py-32 sm:py-40 bg-[#1B2838] overflow-hidden">
+      <section className="relative py-20 sm:py-32 md:py-40 bg-[#1B2838] overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -416,7 +416,7 @@ export default function BookPage() {
             <p className="text-[#E8D5B7] uppercase tracking-[0.2em] text-sm mb-6">
               Don&apos;t Wait
             </p>
-            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] mb-6">
+            <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] mb-6">
               Your new perspective{' '}
               <span className="text-[#C4572A] italic">starts here</span>
             </h2>
@@ -430,7 +430,7 @@ export default function BookPage() {
                 href={AMAZON_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-[#C4572A] text-white font-medium rounded-sm hover:bg-[#A84522] transition-colors text-lg"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 sm:px-10 sm:py-5 bg-[#C4572A] text-white font-medium rounded-sm hover:bg-[#A84522] transition-colors text-base sm:text-lg"
               >
                 <ShoppingCart className="w-5 h-5" />
                 Buy on Amazon Now
@@ -439,7 +439,7 @@ export default function BookPage() {
                 href={AMAZON_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-10 py-5 border border-white/20 text-white font-medium rounded-sm hover:bg-white/5 transition-colors text-lg"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 sm:px-10 sm:py-5 border border-white/20 text-white font-medium rounded-sm hover:bg-white/5 transition-colors text-base sm:text-lg"
               >
                 <Pen className="w-5 h-5" />
                 Order Signed Copy

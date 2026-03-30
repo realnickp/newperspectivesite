@@ -42,14 +42,14 @@ export default function BlogPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-24 sm:pb-32 bg-[#1B2838] overflow-hidden">
+      <section className="relative pt-28 sm:pt-32 pb-16 sm:pb-32 bg-[#1B2838] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#1B2838] via-[#1B2838] to-[#162230]" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
             <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#E8D5B7] mb-6">
               Blog
             </p>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-white mb-6 leading-[1.1]">
+            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white mb-6 leading-[1.1]">
               Insights &amp;{' '}
               <span className="text-[#C4572A] italic">Resources</span>
             </h1>
@@ -66,7 +66,7 @@ export default function BlogPage() {
       {/* Categories */}
       <section className="bg-[#FAFAF7] border-b border-[#D1CCC3]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex items-center gap-8 py-5 overflow-x-auto">
+          <nav className="flex items-center gap-5 sm:gap-8 py-5 overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-none">
             {categories.map((cat, i) => (
               <button
                 key={cat}

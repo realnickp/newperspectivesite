@@ -34,7 +34,7 @@ export default function ServicesPage() {
             <p className="text-[#E8D5B7] uppercase tracking-[0.25em] text-xs font-semibold mb-6">
               Our Services
             </p>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-white leading-[1.1] mb-6">
+            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white leading-[1.1] mb-6">
               Comprehensive Support for{' '}
               <span className="text-[#C4572A] italic">Every Stage</span>{' '}
               of Recovery
@@ -53,9 +53,9 @@ export default function ServicesPage() {
       {/* ===== SERVICE 01 — Motivational Speaking ===== */}
       <section id="speaking" className="scroll-mt-24 bg-[#FAFAF7]">
         <div className="max-w-[100rem] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[70vh]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[50vh] lg:min-h-[70vh]">
             {/* Image side */}
-            <AnimatedSection className="relative h-[50vh] lg:h-auto">
+            <AnimatedSection className="relative h-[40vh] sm:h-[50vh] lg:h-auto">
               <Image
                 src="/images/speaking-outdoor.png"
                 alt="Daniel McGowan delivering a motivational speech"
@@ -117,7 +117,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ===== PULL QUOTE BREAK ===== */}
-      <section className="relative py-24 sm:py-32 bg-[#1B2838] overflow-hidden">
+      <section className="relative py-16 sm:py-24 md:py-32 bg-[#1B2838] overflow-hidden">
         <div className="absolute inset-0 opacity-15">
           <Image
             src="/images/ocean-aerial.png"
@@ -129,7 +129,7 @@ export default function ServicesPage() {
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
-            <blockquote className="font-serif text-2xl sm:text-3xl md:text-4xl text-white leading-[1.25] italic">
+            <blockquote className="font-serif text-xl sm:text-3xl md:text-4xl text-white leading-[1.25] italic">
               &ldquo;You don&apos;t have to wait until things get worse. The
               best time to reach out is right now.&rdquo;
             </blockquote>
@@ -141,10 +141,10 @@ export default function ServicesPage() {
       </section>
 
       {/* ===== SERVICE 02 — Substance Abuse Intervention ===== */}
-      <section id="intervention" className="scroll-mt-24 py-24 sm:py-32 bg-[#F2F0EB]">
+      <section id="intervention" className="scroll-mt-24 py-16 sm:py-24 md:py-32 bg-[#F2F0EB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header with image */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 mb-12 sm:mb-20">
             <div className="lg:col-span-7">
               <AnimatedSection>
                 <div className="flex items-center gap-3 mb-6">
@@ -234,11 +234,11 @@ export default function ServicesPage() {
       </section>
 
       {/* ===== SERVICE 03 — Family Support (image right, text left) ===== */}
-      <section id="family" className="scroll-mt-24 bg-[#FAFAF7]">
+      <section id="family" className="scroll-mt-24 bg-[#FAFAF7] pb-10 sm:pb-16">
         <div className="max-w-[100rem] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[70vh]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[50vh] lg:min-h-[70vh]">
             {/* Text side */}
-            <div className="flex items-center px-6 sm:px-10 lg:px-16 xl:px-24 py-16 lg:py-24 order-2 lg:order-1">
+            <div className="flex items-center px-6 sm:px-10 lg:px-16 xl:px-24 py-12 sm:py-16 lg:py-24 order-2 lg:order-1">
               <div>
                 <AnimatedSection>
                   <div className="flex items-center gap-3 mb-6">
@@ -284,7 +284,7 @@ export default function ServicesPage() {
             </div>
 
             {/* Image side */}
-            <AnimatedSection className="relative h-[50vh] lg:h-auto order-1 lg:order-2">
+            <AnimatedSection className="relative h-[40vh] sm:h-[50vh] lg:h-auto order-1 lg:order-2">
               <Image
                 src="/images/counseling.png"
                 alt="Family support and counseling"
@@ -298,7 +298,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ===== IMAGE BREAK — Atmospheric ===== */}
-      <section className="relative h-[40vh] sm:h-[50vh] overflow-hidden">
+      <section className="relative h-[30vh] sm:h-[40vh] md:h-[50vh] overflow-hidden">
         <Image
           src="/images/recovery-hope.png"
           alt=""
@@ -306,10 +306,14 @@ export default function ServicesPage() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[#1B2838]/60" />
+        {/* Blend from section cream into photo, then deepen for quote legibility */}
+        <div
+          className="absolute inset-0 bg-[linear-gradient(to_bottom,#FAFAF7_0%,rgba(250,250,247,0.45)_12%,rgba(27,40,56,0.42)_38%,rgba(27,40,56,0.68)_100%)]"
+          aria-hidden
+        />
         <div className="relative z-10 h-full flex items-center justify-center px-4">
           <AnimatedSection>
-            <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-white text-center italic max-w-3xl leading-[1.3]">
+            <p className="font-serif text-xl sm:text-3xl md:text-4xl text-white text-center italic max-w-3xl leading-[1.3]">
               &ldquo;Together, we can tackle addiction and mental health challenges
               with compassion and strength.{' '}
               <span className="text-[#E8D5B7]">You are not alone.</span>&rdquo;
@@ -319,7 +323,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ===== SERVICE 04 — One-on-One Coaching ===== */}
-      <section id="coaching" className="scroll-mt-24 py-24 sm:py-32 bg-[#F2F0EB]">
+      <section id="coaching" className="scroll-mt-24 py-16 sm:py-24 md:py-32 bg-[#F2F0EB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-16">
             <AnimatedSection>
@@ -401,7 +405,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ===== BOTTOM CTA ===== */}
-      <section className="relative py-32 sm:py-40 bg-[#1B2838] overflow-hidden">
+      <section className="relative py-20 sm:py-32 md:py-40 bg-[#1B2838] overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -416,7 +420,7 @@ export default function ServicesPage() {
             <p className="text-[#E8D5B7] uppercase tracking-[0.25em] text-xs font-semibold mb-6">
               Take the First Step
             </p>
-            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-white mb-6 leading-[1.1]">
+            <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white mb-6 leading-[1.1]">
               Not Sure Where to{' '}
               <span className="text-[#C4572A] italic">Start?</span>
             </h2>
@@ -428,14 +432,15 @@ export default function ServicesPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-[#C4572A] text-white font-semibold px-10 py-5 rounded-sm text-lg transition-all duration-200 hover:bg-[#A84522]"
+                className="inline-flex items-center justify-center gap-2 bg-[#C4572A] text-white font-semibold px-7 py-4 sm:px-10 sm:py-5 rounded-sm text-base sm:text-lg transition-all duration-200 hover:bg-[#A84522]"
               >
                 <Calendar className="w-5 h-5" />
-                Schedule a Free Consultation
+                <span className="hidden sm:inline">Schedule a Free Consultation</span>
+                <span className="sm:hidden">Free Consultation</span>
               </Link>
               <a
                 href={SITE_CONFIG.phoneTel}
-                className="inline-flex items-center justify-center gap-2 text-white font-semibold px-10 py-5 rounded-sm text-lg border border-white/15 transition-all duration-200 hover:bg-white/5"
+                className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 sm:px-10 sm:py-5 rounded-sm text-base sm:text-lg border border-white/15 transition-all duration-200 hover:bg-white/5"
               >
                 <Phone className="w-5 h-5" />
                 Call {SITE_CONFIG.phone}
