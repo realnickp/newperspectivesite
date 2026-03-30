@@ -64,7 +64,7 @@ export default function BlogPage() {
       </section>
 
       {/* Categories */}
-      <section className="bg-[#FAFAF7] border-b border-[#D1CCC3]">
+      <section className="bg-[#FAFAF7] border-b border-[#D1CCC3] overflow-x-clip">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center gap-5 sm:gap-8 py-5 overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-none">
             {categories.map((cat, i) => (

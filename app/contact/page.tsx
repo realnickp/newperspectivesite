@@ -93,12 +93,12 @@ export default function ContactPage() {
                         {item.href ? (
                           <a
                             href={item.href}
-                            className="font-serif text-2xl text-[#1B2838] hover:text-[#C4572A] transition-colors"
+                            className="font-serif text-lg sm:text-2xl text-[#1B2838] hover:text-[#C4572A] transition-colors break-all sm:break-normal"
                           >
                             {item.value}
                           </a>
                         ) : (
-                          <p className="font-serif text-2xl text-[#1B2838]">
+                          <p className="font-serif text-lg sm:text-2xl text-[#1B2838]">
                             {item.value}
                           </p>
                         )}
