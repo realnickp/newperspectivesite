@@ -101,7 +101,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col overflow-x-hidden">
+      <body className="min-h-screen flex flex-col">
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />
