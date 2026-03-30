@@ -10,7 +10,7 @@ const INQUIRY_LABELS: Record<string, string> = {
   other: 'Other',
 }
 
-/** Default inboxes when CONTACT_TO_EMAIL is unset (comma-separated overrides) */
+/** Used when no env recipients are set (comma-separated in env) */
 const DEFAULT_NOTIFICATION_EMAILS = [
   'Dan@newperspectivesupportservices.com',
   'realnickpatrick@gmail.com',
@@ -18,6 +18,19 @@ const DEFAULT_NOTIFICATION_EMAILS = [
 
 const DEFAULT_FROM =
   'New Perspective Website <contact@newperspectivesupportservices.com>'
+
+/** Trim env; strip one pair of surrounding quotes (common in .env files) */
+function envTrim(raw: string | undefined): string {
+  if (!raw) return ''
+  let s = raw.trim()
+  if (
+    (s.startsWith('"') && s.endsWith('"')) ||
+    (s.startsWith("'") && s.endsWith("'"))
+  ) {
+    s = s.slice(1, -1).trim()
+  }
+  return s
+}
 
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
@@ -32,7 +45,11 @@ function escapeHtml(s: string) {
 }
 
 function getNotificationRecipients(): string[] {
-  const raw = process.env.CONTACT_TO_EMAIL?.trim()
+  const raw = envTrim(
+    process.env.RESEND_TO_EMAIL ||
+      process.env.RESEND_TO ||
+      process.env.CONTACT_TO_EMAIL
+  )
   if (!raw) {
     return [...DEFAULT_NOTIFICATION_EMAILS]
   }
@@ -40,6 +57,16 @@ function getNotificationRecipients(): string[] {
     .split(/[,;]+/)
     .map((e) => e.trim())
     .filter((e) => e.length > 0 && isValidEmail(e))
+}
+
+function getFromAddress(): string {
+  return (
+    envTrim(
+      process.env.RESEND_FROM_EMAIL ||
+        process.env.RESEND_FROM ||
+        process.env.CONTACT_FROM_EMAIL
+    ) || DEFAULT_FROM
+  )
 }
 
 /** E.164-style tel: href for US numbers when possible */
@@ -103,14 +130,14 @@ export async function POST(req: Request) {
 
     const recipients = getNotificationRecipients()
     if (recipients.length === 0) {
-      console.error('No valid CONTACT_TO_EMAIL recipients')
+      console.error('No valid notification recipients (RESEND_TO_EMAIL / RESEND_TO)')
       return NextResponse.json(
         { error: 'Contact form is not configured correctly.' },
         { status: 503 }
       )
     }
 
-    const from = process.env.CONTACT_FROM_EMAIL?.trim() || DEFAULT_FROM
+    const from = getFromAddress()
 
     const resend = new Resend(key)
     const inquiryLabel = INQUIRY_LABELS[inquiryType]
