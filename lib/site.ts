@@ -8,10 +8,5 @@ export function getSiteUrl(): string {
   if (explicit) {
     return explicit.replace(/\/$/, '')
   }
-  const vercel = process.env.VERCEL_URL?.trim()
-  if (vercel) {
-    const host = vercel.replace(/^https?:\/\//, '').split('/')[0]
-    return `https://${host}`
-  }
   return 'https://newperspectivesite.vercel.app'
 }

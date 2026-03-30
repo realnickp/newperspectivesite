@@ -49,15 +49,6 @@ export const metadata: Metadata = {
     description:
       'Daniel McGowan is a Certified Alcohol & Drug Counselor, Certified Interventionist, and Motivational Speaker based in New Jersey.',
     url: siteUrl,
-    images: [
-      {
-        url: '/opengraph-image',
-        width: 1200,
-        height: 630,
-        alt: 'New Perspective Support Services — Daniel McGowan, Certified Interventionist & Motivational Speaker',
-        type: 'image/png',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -65,12 +56,6 @@ export const metadata: Metadata = {
       'New Perspective Support Services | Daniel McGowan — Certified Interventionist & Speaker',
     description:
       'Certified Interventionist and Motivational Speaker guiding individuals and families through addiction recovery in New Jersey.',
-    images: {
-      url: '/opengraph-image',
-      width: 1200,
-      height: 630,
-      alt: 'New Perspective Support Services — Daniel McGowan, Certified Interventionist & Motivational Speaker',
-    },
   },
 }
 
