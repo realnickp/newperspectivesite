@@ -7,7 +7,6 @@ import {
   ShoppingCart,
   Star,
   Quote,
-  Pen,
 } from 'lucide-react'
 import AnimatedSection from '@/components/AnimatedSection'
 
@@ -113,7 +112,7 @@ export default function BookPage() {
                 strategies for anyone seeking to overcome adversity and build a
                 life of meaning, purpose, and lasting recovery.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex justify-center">
                 <a
                   href={AMAZON_URL}
                   target="_blank"
@@ -122,15 +121,6 @@ export default function BookPage() {
                 >
                   <ShoppingCart className="w-5 h-5" />
                   Buy on Amazon
-                </a>
-                <a
-                  href={AMAZON_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/20 text-white font-medium rounded-sm hover:bg-white/5 transition-colors text-lg"
-                >
-                  <Pen className="w-5 h-5" />
-                  Order Signed Copy
                 </a>
               </div>
             </AnimatedSection>
@@ -425,7 +415,7 @@ export default function BookPage() {
               someone you love, this book will change how you see what&apos;s
               possible.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex justify-center">
               <a
                 href={AMAZON_URL}
                 target="_blank"
@@ -434,15 +424,6 @@ export default function BookPage() {
               >
                 <ShoppingCart className="w-5 h-5" />
                 Buy on Amazon Now
-              </a>
-              <a
-                href={AMAZON_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 sm:px-10 sm:py-5 border border-white/20 text-white font-medium rounded-sm hover:bg-white/5 transition-colors text-base sm:text-lg"
-              >
-                <Pen className="w-5 h-5" />
-                Order Signed Copy
               </a>
             </div>
           </AnimatedSection>
