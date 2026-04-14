@@ -167,7 +167,7 @@ export default function ServicesPage() {
             <AnimatedSection delay={0.15} className="lg:col-span-5">
               <div className="relative aspect-[4/3] rounded-sm overflow-hidden">
                 <Image
-                  src="/images/interventions.png"
+                  src="/images/interventions.jpg"
                   alt="Professional intervention support"
                   fill
                   className="object-cover"
